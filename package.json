@@ -9,7 +9,7 @@
     "rollback": "knex migrate:rollback",
     "reset": "npm run rollback && npm run migrate && npm run seed",
     "seed": "knex seed:run",
-    "test": "jest --watch"
+    "test": "jest --watchAll --verbose --runInBand"
   },
   "jest": {
     "testEnvironment": "node"
