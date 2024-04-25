@@ -1,11 +1,11 @@
 const express = require('express')
-const resourceRouter = require('./resource/resource-router')
+const characterRouter = require('./character/character-router')
 
 const server = express()
 
 server.use(express.json())
 
-server.use('/api/resource', resourceRouter)
+server.use('/api/character', characterRouter)
 
 router.use('*', (req, res, next)=> {
     res.json({api: 'up'})
