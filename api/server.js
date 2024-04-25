@@ -7,7 +7,7 @@ server.use(express.json())
 
 server.use('/api/character', characterRouter)
 
-router.use('*', (req, res, next)=> {
+server.use('*', (req, res, next)=> {
     res.json({api: 'up'})
 })
 

@@ -9,7 +9,7 @@
     "rollback": "knex migrate:rollback",
     "reset": "npm run rollback && npm run migrate && npm run seed",
     "seed": "knex seed:run",
-    "test": "jest --watchAll --verbose --runInBand"
+    "test": "cross-env DB_ENV=testing jest --watchAll --verbose --runInBand"
   },
   "jest": {
     "testEnvironment": "node"
@@ -26,6 +26,7 @@
     "supertest": "^7.0.0"
   },
   "dependencies": {
+    "cross-env": "^7.0.3",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "knex": "^3.1.0",
