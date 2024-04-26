@@ -8,6 +8,7 @@ exports.up = function(knex) {
         tbl.increments("character_id")
         tbl.text("character_name").notNullable()
         tbl.text("character_class").notNullable()
+        tbl.integer("character_health").notNullable()
     })
 };
 
