@@ -13,6 +13,21 @@ const checkNameExists = async (req, res, next) => {
        }
 }
 
+const checkCharacterPayload = (req, res, next ) => {
+  const error = { status: 400 }
+  const { character_name, character_class, character_health } = req.body
+  if (character_name === undefined || character_class === undefined || character_health === undefined) {
+    error.message = 'name, class and health are required'
+  }
+  if(error.message) {
+    next(error)
+  }else{
+    next()
+  }
+}
+
+
 module.exports = {
-    checkNameExists
+    checkNameExists,
+    checkCharacterPayload
 }

@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const Character = require('./character-model')
-const { checkNameExists } = require('./character-middleware')
+const { checkNameExists, checkCharacterPayload } = require('./character-middleware')
 
 router.get('/', async (req, res, next) => {
     try {
@@ -11,7 +11,7 @@ router.get('/', async (req, res, next) => {
     }
 })
 
-router.post("/create", checkNameExists, (req, res, next) => {
+router.post("/create", checkNameExists, checkCharacterPayload, (req, res, next) => {
     const { character_name, character_class, character_health } = req.body
     Character.createCharacter({character_name: character_name, character_class: character_class, character_health: character_health})
     .then
